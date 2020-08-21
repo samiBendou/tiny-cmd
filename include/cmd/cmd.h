@@ -10,6 +10,7 @@
 #include <cmd/consts.h>
 #include <cmd/opt.h>
 
+
 typedef struct
 {
 	char name[CMD_LINE_LEN];
@@ -21,6 +22,5 @@ CMD_cmd_t CMD_cmd(char *name);
 void CMD_cmd_reset(CMD_cmd_t *cmd);
 
 CMD_cmd_t *CMD_cmd_copy(CMD_cmd_t *dst, const CMD_cmd_t *src);
-
 
 #endif //TINY_CMD_CMD_H

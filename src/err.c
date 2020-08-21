@@ -4,6 +4,7 @@
 
 #include <cmd/err.h>
 
+
 CMD_err_t *CMD_err(CMD_err_status_t status, char *message, ...)
 {
 	va_list params;

@@ -11,18 +11,19 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 typedef enum
 {
-    IO_SUCCESS = -1,
-    IO_FAILURE = -2
+	IO_SUCCESS = -1,
+	IO_FAILURE = -2
 } IO_status_t;
 
 typedef enum
 {
-    IO_KEYCODE_UP_ARROW = 'A',
-    IO_KEYCODE_DOWN_ARROW = 'B',
-    IO_KEYCODE_RIGHT_ARROW = 'C',
-    IO_KEYCODE_LEFT_ARROW = 'D',
+	IO_KEYCODE_UP_ARROW = 'A',
+	IO_KEYCODE_DOWN_ARROW = 'B',
+	IO_KEYCODE_RIGHT_ARROW = 'C',
+	IO_KEYCODE_LEFT_ARROW = 'D',
 
 } IO_keycode_t;
 
