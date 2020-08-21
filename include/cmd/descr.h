@@ -6,8 +6,12 @@
 #define TINY_CMD_DESCR_H
 
 #include <cmd/consts.h>
-#include <cmd/opt.h>
 #include <cmd/err.h>
+#include <cmd/opt.h>
+#include <cmd/cmd.h>
+
+
+typedef CMD_err_t *(*CMD_action_t)(const CMD_cmd_t *cmd);
 
 typedef struct
 {
@@ -23,6 +27,7 @@ typedef struct
 	char brief[CMD_DESCR_LEN];
 	CMD_descr_opt_t options[CMD_MAX_OPTS];
 	CMD_opt_pair_t exclusions[CMD_MAX_EXCL];
+	CMD_action_t action;
 
 	size_t optionals[CMD_MAX_OPTS];
 	size_t nones[CMD_MAX_OPTS];
@@ -46,7 +51,7 @@ void CMD_descr_opt_reset(CMD_descr_opt_t *descr);
 
 CMD_descr_opt_t *CMD_descr_opt_copy(CMD_descr_opt_t *dst, const CMD_descr_opt_t *src);
 
-CMD_descr_cmd_t CMD_descr_cmd(const char *name, const char *brief);
+CMD_descr_cmd_t CMD_descr_cmd(const char *name, CMD_action_t action, const char *brief);
 
 void CMD_descr_cmd_reset(CMD_descr_cmd_t *cmd);
 

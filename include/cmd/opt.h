@@ -5,6 +5,7 @@
 #ifndef TINY_CMD_OPT_H
 #define TINY_CMD_OPT_H
 
+#include <errno.h>
 #include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
@@ -67,7 +68,7 @@ void CMD_opt_reset(CMD_opt_t *opt);
 
 CMD_opt_t *CMD_opt_copy(CMD_opt_t *dst, const CMD_opt_t *src);
 
-int CMD_opt_find(const CMD_opt_t opts[], const char label);
+int CMD_opt_find(const CMD_opt_t opts[], char label);
 
 CMD_opt_pair_t CMD_opt_pair(char first, char second);
 

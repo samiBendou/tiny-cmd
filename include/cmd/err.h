@@ -5,10 +5,9 @@
 #ifndef TINY_CMD_ERR_H
 #define TINY_CMD_ERR_H
 
-#include <stdarg.h>
 #include <stdio.h>
+#include <stdarg.h>
 #include <malloc.h>
-
 #include <cmd/consts.h>
 
 

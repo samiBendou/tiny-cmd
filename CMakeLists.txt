@@ -12,12 +12,6 @@ add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 
-set_target_properties(${PROJECT_NAME} PROPERTIES
-        VERSION ${PROJECT_VERSION}
-        SOVERSION 1
-        PUBLIC_HEADER ${INCLUDES}/
-        )
-
 install(TARGETS ${PROJECT_NAME}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

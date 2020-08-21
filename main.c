@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <cmd/hex.h>
-#include <cmd/cmd.h>
-
+#include <cmd/run.h>
 
 CMD_err_t *test(const CMD_cmd_t *cmd)
 {
@@ -21,12 +20,9 @@ CMD_err_t *test(const CMD_cmd_t *cmd)
 int main()
 {
 	CMD_err_t *error;
-	CMD_descr_cmd_t test_cmd = CMD_descr_cmd("test", "test command");
-	CMD_descr_cmd_t other_cmd = CMD_descr_cmd("other", "other command with a very long description you know!");
+	CMD_descr_cmd_t test_cmd = CMD_descr_cmd("test", &test, "test command");
+	CMD_descr_cmd_t other_cmd = CMD_descr_cmd("other", NULL, "other command with a very long description you know!");
 	CMD_descr_tab_t tab = CMD_descr_tab();
-	CMD_hook_t hooks[CMD_MAX_CMD] = {
-			{"test", &test}
-	};
 
 	CMD_descr_push_opt(&test_cmd, CMD_descr_opt('a', CMD_OPT_INT, 0, "option1"));
 	CMD_descr_push_opt(&test_cmd, CMD_descr_opt('b', CMD_OPT_STRING, 1, "option2"));
@@ -43,7 +39,7 @@ int main()
 
 	CMD_descr_push_cmd(&tab, other_cmd);
 
-	if ((error = CMD_run(&tab, hooks)) != NULL)
+	if ((error = CMD_run(&tab)) != NULL)
 	{
 		fprintf(stderr, "%s\n", error->message);
 		free(error);

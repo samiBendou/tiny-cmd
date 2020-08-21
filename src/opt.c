@@ -76,7 +76,7 @@ CMD_opt_t *CMD_opt_copy(CMD_opt_t *dst, const CMD_opt_t *src)
 	return dst;
 }
 
-int CMD_opt_find(const CMD_opt_t opts[], const char label)
+int CMD_opt_find(const CMD_opt_t opts[], char label)
 {
 	for (int o = 0; o < CMD_MAX_OPTS; o++)
 	{
